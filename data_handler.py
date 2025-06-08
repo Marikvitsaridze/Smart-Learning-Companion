@@ -15,14 +15,14 @@ def load_user_data(add_subject_func, display_profile_func, subject_menu_func):
             with open(filepath, "r") as file:
                 content = file.read().strip()
                 if not content:
-                    raise ValueError("Empty file")
+                    raise ValueError("")
                 data = json.loads(content)
             print(f"Welcome back, {data['name']}!")
             print(f"Last login: {data.get('last_login', 'N/A')}")
             data["last_login"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             return data, False
         except Exception as e:
-            print(f"New User: {e}")
+            print(f"New User {e}")
 
     # brand-new user flow
     print("Welcome to Learning Companion!")
